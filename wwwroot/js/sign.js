@@ -46,8 +46,13 @@ async function loop() {
 async function predict() {
   // predict can take in an image, video or canvas html element
   const prediction = await model.predict(webcam.canvas);
+
+    if(prediction[1].className === "A" && prediction[1].probability >= 0.95) {
+      console.log("yes")
+      document.querySelector(".cur-result").style.display =  "block";
+    }
 }
 
 setTimeout(() => {
   init();
-}, 0);
+}, 1000);
