@@ -7,7 +7,7 @@ let index = 0;
 
 // TM code
 // Link to model
-const URL = "https://teachablemachine.withgoogle.com/models/ygzMLw0nd/";
+const URL = "https://teachablemachine.withgoogle.com/models/5OqxtayUT/";
 let model, webcam, labelContainer, maxPredictions;
 
 // Load the image model and setup the webcam
