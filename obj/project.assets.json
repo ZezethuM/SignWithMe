@@ -224,19 +224,19 @@
     ]
   },
   "packageFolders": {
-    "/home/dev/.nuget/packages/": {}
+    "/home/codex/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/dev/Desktop/codex/decision-inc/SignWithMe/SignWithMe.csproj",
+      "projectUniqueName": "/home/codex/Desktop/decesion-inc/projects/SignWithMe/SignWithMe.csproj",
       "projectName": "SignWithMe",
-      "projectPath": "/home/dev/Desktop/codex/decision-inc/SignWithMe/SignWithMe.csproj",
-      "packagesPath": "/home/dev/.nuget/packages/",
-      "outputPath": "/home/dev/Desktop/codex/decision-inc/SignWithMe/obj/",
+      "projectPath": "/home/codex/Desktop/decesion-inc/projects/SignWithMe/SignWithMe.csproj",
+      "packagesPath": "/home/codex/.nuget/packages/",
+      "outputPath": "/home/codex/Desktop/decesion-inc/projects/SignWithMe/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/dev/.nuget/NuGet/NuGet.Config"
+        "/home/codex/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"

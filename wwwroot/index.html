@@ -13,14 +13,29 @@
 
 <body>
   <div class="container pt-2">
-    <h1 class="text-center mb-5">Welcome To Sign With Me</h1>
+    <h1 class="text-center score-container d-none mb-5">score: <span class="score">0</span></h1>
     <div class="row challenge-container d-none d-flex justify-content-center">
+
+      <div class="challenge col-3 d-flex justify-content-center">
+        
+      </div>
+
+      <div class="col-2 cur-result text-center d-flex flex-column justify-content-center">
+        <h2>👉</h2>
+      </div>
+
+      <div class="answer col-3 d-flex align-items-center flex-column">
+        <h4 class="text-center">Sign here</h4>
+        <div class="webcover">
+          <div id="webcam-container"></div>
+        </div>
+      </div>
 
     </div>
 
-    <div class="controllers d-flex justify-content-center">
+    <div class="controllers d-flex justify-content-center align-items-center">
       <button class="start-btn btn btn-success">start</button>
-      <button class="next-btn d-none btn btn-light">Next</button>
+      <button class="next-btn d-none btn btn-warning">Next</button>
     </div>
 
   </div>
