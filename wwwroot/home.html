@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Sign with me</title>
+    <style>
+      .header {
+        margin-top: 120px;
+        text-align: center;
+        font-size: 70px;
+
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .container {
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+      }
+      img {
+        width: 300px;
+        height: 300px;
+        padding-left: 150px;
+        align-content: center;
+      }
+      h1 {
+        font-size: 70px;
+        text-align: center;
+        margin-top: 70px;
+        margin-bottom: 30px;
+      }
+      .text {
+        margin-top: 20px;
+        font-size: 36;
+        text-align: center;
+        padding: 12px 20px;
+      }
+      input {
+        padding: 5px 20px;
+        width: 40%;
+      }
+      button {
+        font-size: 16px;
+        padding: 5px 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Sign with me</h1>
+      <img src="/images/home.jpg" />
+      <div class="text">
+        <form action="/action_page.php">
+          <label for="fname">Firstname:</label>
+          <input
+            type="text"
+            id="fname"
+            name="fname"
+            placeholder="enter your name"
+          /><br /><br />
+          <label for="email">Passwords:</label>
+          <input
+            type="password"
+            id="password"
+            name="Passwords"
+            placeholder="enter password"
+          /><br /><br />
+        </form>
+        <button type="button">Submit</button>
+      </div>
+    </div>
+  </body>
+</html>
