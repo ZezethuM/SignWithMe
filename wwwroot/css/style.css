@@ -23,21 +23,32 @@
 
 .challenge, .answer {
   background: #999;
-  padding: 7px;
+  padding: 1.75em;
 }
 
-h1 {
-  /* margin-top: 50px;
-  text-align: center;
-  font-size: 32px;
-  font-style: italic; */
+.challenge {
+  border-radius: 2em 0 0 2em;
 }
 
-h4 {
-  /* text-align: center; */
+.answer {
+  border-radius: 0 2em 2em 0;
+}
+
+.challenge-container {
+  padding-top: 7em;
 }
 
 img {
   width: 210px;
   height: 260px;
+}
+
+.controllers {
+  height: 100vh;
+}
+
+.start-btn {
+  width: 200px;
+  height: 100px;
+  font-size: 3em !important;
 }
