@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bfnuNDH8JEWVL1WhbxbKDJ+PQTIQprRcRdZws9SOytUsvmCdQDa34Md3S72JXobe4sNkZhPHG+wXWxoYifezsQ==",
+  "dgSpecHash": "wGuiaEXuo9LabzsK7fzd0tFRA9K0ejgSDe94zkaJXEqrcLYxVmIBsQQ4SY1VCh0l7daZB4OKnIKlH25it+KbIA==",
   "success": true,
-  "projectFilePath": "/home/codex/Desktop/decesion-inc/projects/SignWithMe/SignWithMe.csproj",
+  "projectFilePath": "/home/codex/c#projects/SignWithMe/SignWithMe.csproj",
   "expectedPackageFiles": [
     "/home/codex/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "/home/codex/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",

@@ -1,21 +1,25 @@
 /* Teachable machine style */
 
+/* .container {
+  background-color: #7b7474;
+} */
+/* * {
+  background-color: #7b7474;
+} */
+
 #webcam-container {
   background: #000;
   height: 350px;
   width: 350px;
 }
 
-/* h {
-  margin-bottom: 30px;
-} */
-
-h1 {
-  margin-top: 50px;
+.heading {
+  margin-bottom: 80px;
   text-align: center;
   font-size: 32px;
   font-style: italic;
 }
 h4 {
   text-align: center;
+  font-weight: 800;
 }
