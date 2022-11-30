@@ -8,7 +8,7 @@ namespace SignWithMe.Interfaces
 {
     public interface IQuestions
     {
-        IEnumerable<Question> GetAllSigns();
+        IEnumerable<Question> GetAllQuestions();
         Question GetQuestionById(int id);
         void AddQuestion(Question pQuestion );
     }

@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Dapper;
+using Npgsql;
 using SignWithMe.Interfaces;
 using SignWithMe.Models;
 
@@ -9,19 +11,38 @@ namespace SignWithMe.Repository
 {
     public class SignsRepo : ISigns
     {
-        public void AddSign(Sign sign)
+        public SignsRepo(string pConString)
         {
-            throw new NotImplementedException();
+            Connection = new NpgsqlConnection(pConString);
+            Connection.Open();
+            string CREATE_Sign_TABLE = @"create table if not exists alphabets (
+	            Id SERIAL PRIMARY KEY,
+	            Alphabet VARCHAR(50) NOT NULL,
+                ImageFile VARCHAR(150) NOT NULL
+            );";
+            Connection.Execute(CREATE_Sign_TABLE);
+        }
+        public void AddSign(Sign pSign)
+        {
+            string addQsql = @"insert into alphabets(Alphabet, ImageFile)
+                            values(@Alphabet, @ImageFile)";
+            Connection.Execute(addQsql, new Sign(){ Alphabet= pSign.Alphabet, ImageFile = pSign.ImageFile});
         }
 
         public IEnumerable<Sign> GetAllSigns()
         {
-            throw new NotImplementedException();
+             var Signs = Connection.Query<Sign>(@"select * from alphabets");
+             return Signs;
         }
 
-        public Sign GetSignByAlphabet(string Alphabet)
+        public Sign GetSignByAlphabet(string pAlphabet)
         {
-            throw new NotImplementedException();
+            var template = new Sign { Alphabet =  pAlphabet };
+            var parameters = new DynamicParameters(template);
+            string sql = @"select * from alphabets where id = @id";
+            var sign = Connection.QueryFirstOrDefault<Sign>(sql, parameters);
+            return sign ;
         }
+        private NpgsqlConnection Connection {get; set;}
     }
 }
