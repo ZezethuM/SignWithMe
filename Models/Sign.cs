@@ -10,6 +10,6 @@ namespace SignWithMe.Models
         public int Id { get; set; }
         public string? Alphabet { get; set; }
         public string? ImageFile { get; set; }
-        public IFormFile? Upload { get; set; }
+        //public IFormFile? Upload { get; set; }
     }
 }

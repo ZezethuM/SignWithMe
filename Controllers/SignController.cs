@@ -1,27 +1,38 @@
 using Microsoft.AspNetCore.Mvc;
+using SignWithMe.Interfaces;
+using SignWithMe.Models;
 
 namespace SignWithMe.Controllers;
 
 [ApiController]
-[Route("api/sign")]
+[Route("api/signs")]
 public class SignController : ControllerBase
 {
     private readonly ILogger<SignController> _logger;
-
-    public SignController(ILogger<SignController> logger)
+    private ISigns signs;
+    public SignController(ILogger<SignController> logger, ISigns pSigns)
     {
         _logger = logger;
+        signs = pSigns;
     }
 
     [HttpGet]
     public IActionResult GetAllSigns()
     {
-        return Ok();
+        return Ok(signs.GetAllSigns());
     }
     
-    [HttpGet("{name}")]
-    public IActionResult GetSignByName(string name)
+    [HttpGet("{alphabet}")]
+    public IActionResult GetSignByAlphabet(string alphabet)
     {
-        return Ok();
+        var sign= signs.GetSignByAlphabet(alphabet);
+        return Ok(sign);
+    }
+
+    [HttpPost]
+    public IActionResult AddSignPost(Sign sign )
+    {
+        signs.AddSign(sign);
+        return Ok(new{sign});
     }
 }
