@@ -1,21 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Teachable machine style */
+.webcover {
+  background: #eee;
+  width: 210px;
+  height: 260px;
+  padding: 30px 5px;
+  border-radius: .4em;
+  border: dashed #999 2px;
+}
 
 #webcam-container {
-  background: #000;
-  height: 350px;
-  width: 350px;
+  border-radius: .4em;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
-/* h {
-  margin-bottom: 30px;
-} */
+.challenge, .answer {
+  background: #999;
+  padding: 7px;
+}
 
 h1 {
-  margin-top: 50px;
+  /* margin-top: 50px;
   text-align: center;
   font-size: 32px;
-  font-style: italic;
+  font-style: italic; */
 }
+
 h4 {
-  text-align: center;
+  /* text-align: center; */
+}
+
+img {
+  width: 210px;
+  height: 260px;
 }
