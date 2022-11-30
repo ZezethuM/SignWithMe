@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/codex/Desktop/decesion-inc/projects/SignWithMe/SignWithMe.csproj": {}
+    "/home/dev/Desktop/codex/decision-inc/SignWithMe/SignWithMe.csproj": {}
   },
   "projects": {
-    "/home/codex/Desktop/decesion-inc/projects/SignWithMe/SignWithMe.csproj": {
+    "/home/dev/Desktop/codex/decision-inc/SignWithMe/SignWithMe.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/codex/Desktop/decesion-inc/projects/SignWithMe/SignWithMe.csproj",
+        "projectUniqueName": "/home/dev/Desktop/codex/decision-inc/SignWithMe/SignWithMe.csproj",
         "projectName": "SignWithMe",
-        "projectPath": "/home/codex/Desktop/decesion-inc/projects/SignWithMe/SignWithMe.csproj",
-        "packagesPath": "/home/codex/.nuget/packages/",
-        "outputPath": "/home/codex/Desktop/decesion-inc/projects/SignWithMe/obj/",
+        "projectPath": "/home/dev/Desktop/codex/decision-inc/SignWithMe/SignWithMe.csproj",
+        "packagesPath": "/home/dev/.nuget/packages/",
+        "outputPath": "/home/dev/Desktop/codex/decision-inc/SignWithMe/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/codex/.nuget/NuGet/NuGet.Config"
+          "/home/dev/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
