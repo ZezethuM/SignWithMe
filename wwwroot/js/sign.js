@@ -22,13 +22,13 @@ let progress = 0;
 const timeLimit = 15;
 let countDown = timeLimit;
 
-let timerInterval;;
+let timerInterval;
 
 function theTimer() {
   if (countDown > 0) {
     countDown--;
-    console.log(countDown)
-    timer.innerHTML = `${countDown}s`
+    console.log(countDown);
+    timer.innerHTML = `${countDown}s`;
   } else {
     tryBtn.classList.remove("d-none");
     curResult.innerHTML = `<h2>Time up</h2>`;
@@ -40,12 +40,12 @@ function theTimer() {
 }
 
 function stopper() {
-  clearInterval(timerInterval)
+  clearInterval(timerInterval);
 }
 
 // TM code
 // Link to model
-const URL = "https://teachablemachine.withgoogle.com/models/5OqxtayUT/";
+const URL = "https://teachablemachine.withgoogle.com/models/6P5I5vzi4/";
 let model, webcam, labelContainer, maxPredictions;
 
 // Load the image model and setup the webcam
@@ -83,7 +83,7 @@ async function predict() {
   progressContainer.innerHTML = `  
     <div class="progress">
       <div class="progress-bar bg-success progress-bar-striped" role="progressbar" style="width: ${progress}%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">${progress}%</div>
-    </div>`
+    </div>`;
 
   if (
     prediction[index].className === challenges[index - 1].answer &&
@@ -92,14 +92,13 @@ async function predict() {
     curResult.innerHTML = `<h2>👌Great</h2>`;
     nextBtn.classList.remove("d-none");
 
-    
     stopper();
-    
+
     body.classList.remove("bg-white");
     body.classList.remove("bg-danger");
     body.classList.add("bg-success");
 
-    if(index === 5) {
+    if (index === 5) {
       challengeContainer.classList.add("d-none");
       nextBtn.classList.add("d-none");
       timer.classList.add("d-none");
@@ -107,22 +106,24 @@ async function predict() {
       body.classList.remove("bg-success");
       fireworks.classList.remove("d-none");
       playBtn.classList.remove("d-none");
-
     }
   }
 }
 
-const startChallenge = () => {
+const startChallenge = async () => {
+  await init();
+
   startBtn.classList.add("d-none");
   startArrow.classList.add("d-none");
   challengeContainer.classList.remove("d-none");
   timer.classList.remove("d-none");
 
-  nextSign();
-  init();
+  setTimeout(function () {
+    nextSign();
+  }, 1000);
 };
-startBtn.addEventListener("click", startChallenge);
 
+startBtn.addEventListener("click", startChallenge);
 
 // Moving to the next sign
 const nextSign = () => {
@@ -135,8 +136,10 @@ const nextSign = () => {
 
   progressContainer.innerHTML = `  
     <div class="progress">
-      <div class="progress-bar bg-success progress-bar-striped" role="progressbar" style="width: ${progress * 100}%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">${progress}%</div>
-    </div>`
+      <div class="progress-bar bg-success progress-bar-striped" role="progressbar" style="width: ${
+        progress * 100
+      }%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">${progress}%</div>
+    </div>`;
 
   index++;
   nextBtn.classList.add("d-none");
@@ -161,9 +164,8 @@ const trainAgain = () => {
   body.classList.add("bg-white");
   body.classList.remove("bg-danger");
   body.classList.remove("bg-success");
-}
+};
 tryBtn.addEventListener("click", trainAgain);
-
 
 // Challenge questions
 const challenges = [
@@ -188,6 +190,3 @@ const challenges = [
     answer: "E",
   },
 ];
-
-
-
