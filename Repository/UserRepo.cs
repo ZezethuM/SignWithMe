@@ -24,9 +24,11 @@ namespace SignWithMe.Repository
                 Result VARCHAR(50) NOT NULL
             );";
             Connection.Execute(CREATE_USER_TABLE);
+            Connection.Close();
         }
         public void AddUser(User user)
         {
+            Connection.Open();
             string addQsql = @"insert into players(Username,Password,Level,Score,Result)
                             values(@Username,@Password,@Level,@Score,@Result)";
 
@@ -39,30 +41,37 @@ namespace SignWithMe.Repository
                  Score = user.Score,
                  Result = user.Result
             });
+            Connection.Close();
         }
 
         public bool AuthUser(User pUser)
         {
+            Connection.Open();
             var user = UserbyName(pUser.Username);
             if(user.Password == pUser.Password)
             {
                 return true;
             }
+            Connection.Close();
             return false;
         }
 
         public IEnumerable<User> GetAllUsers()
         {
+             Connection.Open();
              var users = Connection.Query<User>(@"select * from players");
+             Connection.Close();
              return users;
         }
 
         public User UserbyName(string pUsername)
         {
+             Connection.Open();
             var template = new User{ Username =  pUsername };
             var parameters = new DynamicParameters(template);
             string sql = @"select * from players where Username = @Username";
             var user = Connection.QueryFirstOrDefault<User>(sql, parameters);
+            Connection.Close();
             return user ;
         }
         private NpgsqlConnection Connection {get; set;}
