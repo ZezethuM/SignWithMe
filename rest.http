@@ -3,6 +3,9 @@ GET https://localhost:7040/api/signs/A HTTP/1.1
 ###
 
 GET https://example.com/topics/1 HTTP/1.1
+###
+GET https://localhost:7040/api/words HTTP/1.1
+
 
 ###
 
@@ -12,4 +15,12 @@ content-type: application/json
 {
     "Alphabet": "E",
     "ImageFile": "./images/E_sign.png"
+}
+###
+POST https://localhost:7040/api/words HTTP/1.1
+content-type: application/json
+
+{
+    "Word": "you are welcome",
+    "ImageFile": "./images/words/youarewelcome.png"
 }
