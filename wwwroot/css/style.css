@@ -1,7 +1,14 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Nabla&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background-image: url(./images/raised-up-i-love-you-hands-gesture-with-diverse-skin-tone-isolated-on-white-background-unity-concept-with-i-love-you-sign-language-vector.jpg) !important;
 }
 
 /* Teachable machine style */
@@ -14,13 +21,6 @@
   border: dashed #999 2px;
 }
 
-/* .container {
-  background-color: #7b7474;
-} */
-/* * {
-  background-color: #7b7474;
-} */
-
 #webcam-container {
   border-radius: 0.4em;
   overflow: hidden;
@@ -30,33 +30,75 @@
 
 .challenge,
 .answer {
-  background: #999;
+  background: #eee;
   padding: 1.75em;
 }
 
-.challenge {
+/* .challenge {
   border-radius: 2em 0 0 2em;
 }
 
 .answer {
   border-radius: 0 2em 2em 0;
+} */
+
+.challenge,
+.answer {
+  /* display: block; */
+  width: 346px;
+  height: 380px;
+  /* background-color: #999; */
+  border-radius: 6em 4em 4em 4em / 5em 5em 5em 5em !important;
 }
 
 .challenge-container {
-  padding-top: 7em;
+  /* padding-top: 7em; */
+  /* background: #000; */
+}
+
+.hidden {
+  display: none;
 }
 
 img {
   width: 210px;
   height: 260px;
+  border-radius: 0.4em;
 }
 
 .controllers {
-  height: 100vh;
+  /* height: 100vh; */
 }
 
-.start-btn {
-  width: 200px;
+.start-arrow {
+  font-size: 50px;
+  color: gold;
+  animation: up-down 1s infinite;
+}
+
+.start-btn,
+.play-btn {
+  width: 150px;
   height: 100px;
+  border-radius: 6em 4em 4em 4em / 5em 5em 5em 5em !important;
   font-size: 3em !important;
+  font-family: "Nabla", cursive !important;
+}
+
+.play-btn {
+  width: 300px;
+}
+
+.progress-container {
+  width: 200px;
+}
+
+/* keyframes */
+@keyframes up-down {
+  from {
+    opacity: 0;
+  }
+  top {
+    opacity: 1;
+  }
 }
