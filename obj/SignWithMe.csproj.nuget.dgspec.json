@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/codex/My files/c-sharp_projects/SignWithMe/SignWithMe.csproj": {}
+    "/home/codex/Desktop/decesion-inc/projects/SignWithMe/SignWithMe.csproj": {}
   },
   "projects": {
-    "/home/codex/My files/c-sharp_projects/SignWithMe/SignWithMe.csproj": {
+    "/home/codex/Desktop/decesion-inc/projects/SignWithMe/SignWithMe.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/codex/My files/c-sharp_projects/SignWithMe/SignWithMe.csproj",
+        "projectUniqueName": "/home/codex/Desktop/decesion-inc/projects/SignWithMe/SignWithMe.csproj",
         "projectName": "SignWithMe",
-        "projectPath": "/home/codex/My files/c-sharp_projects/SignWithMe/SignWithMe.csproj",
+        "projectPath": "/home/codex/Desktop/decesion-inc/projects/SignWithMe/SignWithMe.csproj",
         "packagesPath": "/home/codex/.nuget/packages/",
-        "outputPath": "/home/codex/My files/c-sharp_projects/SignWithMe/obj/",
+        "outputPath": "/home/codex/Desktop/decesion-inc/projects/SignWithMe/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/codex/.nuget/NuGet/NuGet.Config"
@@ -57,7 +57,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -69,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/dotnet6-6.0.110/sdk/6.0.110/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.403/RuntimeIdentifierGraph.json"
         }
       }
     }

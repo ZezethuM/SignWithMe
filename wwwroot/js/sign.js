@@ -18,6 +18,7 @@ const playBtn = document.querySelector(".play-btn");
 let playerScore = 0;
 let index = 0;
 let progress = 0;
+let challenges = [];
 
 const timeLimit = 15;
 let countDown = timeLimit;
@@ -86,7 +87,7 @@ async function predict() {
     </div>`;
 
   if (
-    prediction[index].className === challenges[index - 1].answer &&
+    prediction[index].className === challenges[index - 1].alphabet &&
     prediction[index].probability >= 0.95
   ) {
     curResult.innerHTML = `<h2>👌Great</h2>`;
@@ -131,7 +132,7 @@ const nextSign = () => {
   challenge.innerHTML = `
   <div class="heading">
   <h4 class="text-center">Alphabet to sign</h4>
-  <img src=${challenges[index].image} class="challenge-img" alt="A-Sign" />
+  <img src=${challenges[index].imageFile} class="challenge-img" alt="A-Sign" />
   </div>`;
 
   progressContainer.innerHTML = `  
@@ -167,26 +168,38 @@ const trainAgain = () => {
 };
 tryBtn.addEventListener("click", trainAgain);
 
+function getSigns() {
+  axios.get("/api/signs")
+    .then(result => challenges = result.data)
+    .catch(err => console.log(err))
+}
+
+getSigns();
+
+function theChallenges(signs) {
+  return signs
+}
+
 // Challenge questions
-const challenges = [
-  {
-    image: "./images/A_sign.png",
-    answer: "A",
-  },
-  {
-    image: "./images/B_sign.jpg",
-    answer: "B",
-  },
-  {
-    image: "./images/C_sing.jpg",
-    answer: "C",
-  },
-  {
-    image: "./images/D_sign.png",
-    answer: "D",
-  },
-  {
-    image: "./images/E_sign.png",
-    answer: "E",
-  },
-];
+// const challenges = [
+//   {
+//     image: "./images/A_sign.png",
+//     answer: "A",
+//   },
+//   {
+//     image: "./images/B_sign.jpg",
+//     answer: "B",
+//   },
+//   {
+//     image: "./images/C_sing.jpg",
+//     answer: "C",
+//   },
+//   {
+//     image: "./images/D_sign.png",
+//     answer: "D",
+//   },
+//   {
+//     image: "./images/E_sign.png",
+//     answer: "E",
+//   },
+// ];
