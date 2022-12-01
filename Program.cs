@@ -5,10 +5,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-//builder.Services.AddControllers();
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 string connString = builder.Configuration.GetConnectionString("TBConnection");
 builder.Services.AddSingleton<IQuestions>(new QuestionsRepo(connString) );
 builder.Services.AddSingleton<ISigns>(new SignsRepo(connString) );
@@ -20,6 +21,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+
 }
 // builder.Services.AddEndpointsApiExplorer();
 // builder.Services.AddSwaggerGen();
@@ -37,11 +39,10 @@ if (app.Environment.IsDevelopment())
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
+ app.UseHttpsRedirection();
 
-// app.UseHttpsRedirection();
+ app.UseAuthorization();
 
-// app.UseAuthorization();
-
-// app.MapControllers();
+ app.MapControllers();
 
 app.Run();
