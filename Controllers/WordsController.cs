@@ -35,4 +35,11 @@ public class WordsController : ControllerBase
     words.AddSign(word);
     return Ok(new { word });
   }
+
+  [HttpDelete]
+  public IActionResult AddSignPost(Words word)
+  {
+    words.DeleteWordn(word);
+    return Ok();
+  }
 }

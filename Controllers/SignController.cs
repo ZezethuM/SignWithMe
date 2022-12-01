@@ -35,4 +35,11 @@ public class SignController : ControllerBase
         signs.AddSign(sign);
         return Ok(new{sign});
     }
+
+     [HttpPut]
+    public IActionResult AddSignPost(Sign sign )
+    {
+        signs.UpdateSign(sign);
+        return Ok(new{sign});
+    }
 }
