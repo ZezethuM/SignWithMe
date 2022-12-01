@@ -19,7 +19,7 @@ let playerScore = 0;
 let index = 0;
 let progress = 0;
 
-const timeLimit = 15;
+const timeLimit = 7;
 let countDown = timeLimit;
 
 let timerInterval;
@@ -35,7 +35,7 @@ function theTimer() {
 
     body.classList.remove("bg-white");
     body.classList.remove("bg-success");
-    body.classList.add("bg-danger");
+    body.classList.add("bg-warning");
   }
 }
 
@@ -45,26 +45,26 @@ function stopper() {
 
 // TM code
 // Link to model
-const URL = "https://teachablemachine.withgoogle.com/models/6P5I5vzi4/";
+const URL = "https://teachablemachine.withgoogle.com/models/M0T42U-vN/";
 let model, webcam, labelContainer, maxPredictions;
 
 // Load the image model and setup the webcam
 async function init() {
   const modelURL = URL + "model.json";
   const metadataURL = URL + "metadata.json";
-
-  // TM object to the window
-  model = await tmImage.load(modelURL, metadataURL);
+  // load the model and metadata
+  // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+  // Note: the pose library adds a tmPose object to your window (window.tmPose)
+  model = await tmPose.load(modelURL, metadataURL);
   maxPredictions = model.getTotalClasses();
-
   // Convenience function to setup a webcam
+  const size = 200;
   const flip = true; // whether to flip the webcam
-  webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+  webcam = new tmPose.Webcam(size, size, flip); // width, height, flip
   await webcam.setup(); // request access to the webcam
   await webcam.play();
   window.requestAnimationFrame(loop);
-
-  // append elements to the DOM
+  // append/get elements to the DOM
   document.getElementById("webcam-container").appendChild(webcam.canvas);
 }
 
@@ -84,7 +84,7 @@ async function predict() {
     <div class="progress">
       <div class="progress-bar bg-success progress-bar-striped" role="progressbar" style="width: ${progress}%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">${progress}%</div>
     </div>`;
-
+  
   if (
     prediction[index].className === challenges[index - 1].answer &&
     prediction[index].probability >= 0.95
@@ -95,7 +95,7 @@ async function predict() {
     stopper();
 
     body.classList.remove("bg-white");
-    body.classList.remove("bg-danger");
+    body.classList.remove("bg-warning");
     body.classList.add("bg-success");
 
     if (index === 5) {
@@ -110,7 +110,7 @@ async function predict() {
   }
 }
 
-const startChallenge = async () => {
+const startChallenge2 = async () => {
   await init();
 
   startBtn.classList.add("d-none");
@@ -123,15 +123,15 @@ const startChallenge = async () => {
   }, 1000);
 };
 
-startBtn.addEventListener("click", startChallenge);
+startBtn.addEventListener("click", startChallenge2);
 
 // Moving to the next sign
 const nextSign = () => {
   // Changing the question image
   challenge.innerHTML = `
   <div class="heading">
-  <h4 class="text-center">Alphabet to sign</h4>
-  <img src=${challenges[index].image} class="challenge-img" alt="A-Sign" />
+  <h4 class="text-center">Word to sign</h4>
+  <img src=${challenges[index].image} class="challenge-img" alt="Hello" />
   </div>`;
 
   progressContainer.innerHTML = `  
@@ -153,40 +153,38 @@ const nextSign = () => {
   timerInterval = setInterval(theTimer, 1000);
 };
 nextBtn.addEventListener("click", nextSign);
-
+var maxAttempts = 0;
 // Try again function
+if(maxAttempts < 3)
+{
+  tryBtn.addEventListener("click", trainAgain);
+}
+else
+{
+  tryBtn.addEventListener("click", nextSign);
+}
 const trainAgain = () => {
-  countDown = 15;
-
+  countDown = 7;
+  maxAttempts++;
   curResult.innerHTML = `<h2>👉</h2>`;
-
-  tryBtn.classList.add("d-none");
-  body.classList.add("bg-white");
-  body.classList.remove("bg-danger");
-  body.classList.remove("bg-success");
-};
+  
+    tryBtn.classList.add("d-none");
+    body.classList.add("bg-white");
+    body.classList.remove("bg-danger");
+    body.classList.remove("bg-success");
+  };
 tryBtn.addEventListener("click", trainAgain);
 
+
 // Challenge questions
-const challenges = [
-  {
-    image: "../",
-    answer: "A",
-  },
-  {
-    image: "./images/B_sign.jpg",
-    answer: "B",
-  },
-  {
-    image: "./images/C_sing.jpg",
-    answer: "C",
-  },
-  {
-    image: "./images/D_sign.png",
-    answer: "D",
-  },
-  {
-    image: "./images/E_sign.png",
-    answer: "E",
-  },
-];
+function getWords() {
+  axios.get("/api/words")
+    .then(result => challenges = result.data)
+    .catch(err => console.log(err))
+}
+
+getWords();
+
+function theChallenges(words) {
+  return words
+}

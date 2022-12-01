@@ -14,13 +14,14 @@ const tryBtn = document.querySelector(".try-btn");
 const fireworks = document.querySelector(".pyro");
 const playBtn = document.querySelector(".play-btn");
 
+
 // variables
 let playerScore = 0;
 let index = 0;
 let progress = 0;
 let challenges = [];
 
-const timeLimit = 15;
+const timeLimit = 7;
 let countDown = timeLimit;
 
 let timerInterval;
@@ -85,7 +86,7 @@ async function predict() {
     <div class="progress">
       <div class="progress-bar bg-success progress-bar-striped" role="progressbar" style="width: ${progress}%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">${progress}%</div>
     </div>`;
-
+   var maxAttempts = 0;
   if (
     (prediction[index].className === challenges[index - 1].alphabet &&
     prediction[index].probability >= 0.95)
@@ -96,7 +97,7 @@ async function predict() {
     stopper();
 
     body.classList.remove("bg-white");
-    body.classList.remove("bg-danger");
+    body.classList.remove("bg-warning");
     body.classList.add("bg-success");
 
     if (index === 5) {
@@ -132,7 +133,7 @@ const nextSign = () => {
   challenge.innerHTML = `
   <div class="heading">
   <h4 class="text-center">Alphabet to sign</h4>
-  <img src=${challenges[index].imageFile} class="challenge-img" alt="A-Sign" />
+  <img src=${challenges[index].imageFile} class="challenge-img" alt="A-Sign"/>
   </div>`;
   progressContainer.innerHTML = `  
     <div class="progress">
@@ -154,18 +155,22 @@ const nextSign = () => {
 };
 nextBtn.addEventListener("click", nextSign);
 
+
 // Try again function
-const trainAgain = () => {
-  countDown = 15;
-
-  curResult.innerHTML = `<h2>👉</h2>`;
-
-  tryBtn.classList.add("d-none");
-  body.classList.add("bg-white");
-  body.classList.remove("bg-danger");
-  body.classList.remove("bg-success");
-};
-tryBtn.addEventListener("click", trainAgain);
+if(maxAttempts < 3)
+{
+    maxAttempts++;
+    const trainAgain = () => {
+      countDown = 7;
+      curResult.innerHTML = `<h2>👉</h2>`;
+    
+      tryBtn.classList.add("d-none");
+      body.classList.add("bg-white");
+      body.classList.remove("bg-warning");
+      body.classList.remove("bg-success");
+    };
+    tryBtn.addEventListener("click", trainAgain);
+}
 
 function getSigns() {
   axios.get("/api/signs")

@@ -14,6 +14,7 @@ string connString = builder.Configuration.GetConnectionString("TBConnection");
 builder.Services.AddSingleton<IQuestions>(new QuestionsRepo(connString) );
 builder.Services.AddSingleton<ISigns>(new SignsRepo(connString) );
 builder.Services.AddSingleton<IUser>(new UserRepo(connString) );
+builder.Services.AddSingleton<IWords>(new WordsRepo(connString));
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
