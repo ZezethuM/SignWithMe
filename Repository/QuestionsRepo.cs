@@ -41,7 +41,7 @@ namespace SignWithMe.Repository
             var question = Connection.QueryFirstOrDefault<Question>(sql, parameters);
             return question;
         }
-
+        
         private NpgsqlConnection Connection {get; set;}
 
     }

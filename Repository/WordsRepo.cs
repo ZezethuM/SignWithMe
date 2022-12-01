@@ -18,7 +18,7 @@ namespace SignWithMe.Repository
       string CREATE_Words_TABLE = @"create table if not exists words (
 	            Id SERIAL PRIMARY KEY,
 	            Word VARCHAR(50) NOT NULL,
-                ImageFile VARCHAR(150) NOT NULL
+              ImageFile VARCHAR(150) NOT NULL
             );";
       Connection.Execute(CREATE_Words_TABLE);
     }
@@ -33,6 +33,13 @@ namespace SignWithMe.Repository
     {
       var Words = Connection.Query<Words>(@"select * from words");
       return Words;
+    }
+    public void DeleteWord(int id)
+    {
+            var template = new Words{ Id = id };
+            var parameters = new DynamicParameters(template);
+            string sql = @"delete from words where Id = @id";
+            Connection.Execute( sql, parameters);
     }
 
     public Words GetSignByAlphabet(string pWord)

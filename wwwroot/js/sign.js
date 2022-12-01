@@ -87,8 +87,8 @@ async function predict() {
     </div>`;
 
   if (
-    prediction[index].className === challenges[index - 1].alphabet &&
-    prediction[index].probability >= 0.95
+    (prediction[index].className === challenges[index - 1].alphabet &&
+    prediction[index].probability >= 0.95)
   ) {
     curResult.innerHTML = `<h2>👌Great</h2>`;
     nextBtn.classList.remove("d-none");
@@ -134,7 +134,6 @@ const nextSign = () => {
   <h4 class="text-center">Alphabet to sign</h4>
   <img src=${challenges[index].imageFile} class="challenge-img" alt="A-Sign" />
   </div>`;
-
   progressContainer.innerHTML = `  
     <div class="progress">
       <div class="progress-bar bg-success progress-bar-striped" role="progressbar" style="width: ${

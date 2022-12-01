@@ -43,6 +43,14 @@ namespace SignWithMe.Repository
             var sign = Connection.QueryFirstOrDefault<Sign>(sql, parameters);
             return sign ;
         }
+        public void UpdateSign(Sign pSign)
+        {
+            var sign = GetSignByAlphabet(pSign.Alphabet);
+            var template = new Sign { Id = sign.id, Alphabet = sign.Alphabet, ImageFile = pSign.ImageFile};
+            var parameters = new DynamicParameters(template);
+            string sql = @"update alphabets set ImageFile = @imageFile where Id = @id";
+            Connection.Execute( sql, parameters);
+        }
         private NpgsqlConnection Connection {get; set;}
     }
 }
