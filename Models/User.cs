@@ -9,6 +9,7 @@ namespace SignWithMe.Models
     {
         public int Id { get; set; }
         public string? Username { get; set; }
+        public string? Password { get; set; }
         public string? Level { get; set; }
         public string? Score { get; set; }
         public string? Result { get; set; }
