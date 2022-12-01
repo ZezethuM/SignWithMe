@@ -50,16 +50,16 @@ namespace SignWithMe.Repository
             Connection.Close();
             return sign ;
         }
-        public void UpdateSign(Sign pSign)
+       /* public void UpdateSign(Sign pSign)
         {
              Connection.Open();
             var sign = GetSignByAlphabet(pSign.Alphabet);
-            var template = new Sign { Id = sign.id, Alphabet = sign.Alphabet, ImageFile = pSign.ImageFile};
+            var template = new Sign { Id = sign.Id, Alphabet = sign.Alphabet, ImageFile = pSign.ImageFile};
             var parameters = new DynamicParameters(template);
             string sql = @"update alphabets set ImageFile = @imageFile where Id = @id";
             Connection.Execute( sql, parameters);
             Connection.Close();
-        }
+        }*/
         private NpgsqlConnection Connection {get; set;}
     }
 }
