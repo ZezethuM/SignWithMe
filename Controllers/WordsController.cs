@@ -36,10 +36,10 @@ public class WordsController : ControllerBase
     return Ok(new { word });
   }
 
-  [HttpDelete]
+  /*[HttpDelete]
   public IActionResult DeleteWord(Words word)
   {
-    words.DeleteWordn(word);
+    words.DeleteWord(word);
     return Ok();
-  }
+  }*/
 }

@@ -155,6 +155,7 @@ const nextSign = () => {
 nextBtn.addEventListener("click", nextSign);
 var maxAttempts = 0;
 // Try again function
+
 if(maxAttempts < 3)
 {
   tryBtn.addEventListener("click", trainAgain);
@@ -163,6 +164,7 @@ else
 {
   tryBtn.addEventListener("click", nextSign);
 }
+
 const trainAgain = () => {
   countDown = 7;
   maxAttempts++;

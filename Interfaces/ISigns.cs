@@ -11,6 +11,6 @@ namespace SignWithMe.Interfaces
         IEnumerable<Sign> GetAllSigns();
         Sign GetSignByAlphabet(string Alphabet);
         void AddSign(Sign sign);
-        void UpdateSign(Sign sign);
+        //void UpdateSign(Sign sign);
     }
 }
