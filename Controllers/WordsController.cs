@@ -37,7 +37,7 @@ public class WordsController : ControllerBase
   }
 
   [HttpDelete]
-  public IActionResult AddSignPost(Words word)
+  public IActionResult DeleteWord(Words word)
   {
     words.DeleteWordn(word);
     return Ok();
