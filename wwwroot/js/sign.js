@@ -14,6 +14,7 @@ const tryBtn = document.querySelector(".try-btn");
 const fireworks = document.querySelector(".pyro");
 const playBtn = document.querySelector(".play-btn");
 
+
 // variables
 let playerScore = 0;
 let index = 0;
