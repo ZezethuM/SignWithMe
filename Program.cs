@@ -7,7 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 //builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-<<<<<<< HEAD
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 string connString = builder.Configuration.GetConnectionString("TBConnection");
@@ -22,11 +21,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-=======
 // builder.Services.AddEndpointsApiExplorer();
 // builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
+// var app = builder.Build();
 
 // // Configure the HTTP request pipeline.
 // if (app.Environment.IsDevelopment())
@@ -34,7 +32,6 @@ var app = builder.Build();
 //     app.UseSwagger();
 //     app.UseSwaggerUI();
 // }
->>>>>>> 7ff5c28d350f2824c0badb0dba673c434aae19a8
 
 // To display static files
 app.UseDefaultFiles();
